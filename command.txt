@@ -1,5 +1,0 @@
-terraform apply -target=aws_default_vpc.rabbitMQ -auto-approve
-terraform apply -target=aws_vpc.rabbitMQ_data -auto-approve
-terraform apply -target=aws_security_group.demo-sg -auto-approve
-terraform apply -target=aws_security_group.rabbitMQ_data -auto-approve
-terraform apply -target=aws_mq_broker.rabbitmq_dv1 -auto-approve
