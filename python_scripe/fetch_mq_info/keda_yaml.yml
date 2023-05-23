@@ -4,7 +4,7 @@ kind: Secret
 metadata:
   name: keda-rabbitmq-secret
 data:
-  host: "YW1xcHM6Ly90cHNlcnZpY2U6dHBzZXJ2aWNldHBzZXJ2aWNlQGItODllMmU4YTQtNTMyNC00YjkwLTk3NGQtNTE3N2EyNWNjMjBhLm1xLmFwLXNvdXRoLTEuYW1hem9uYXdzLmNvbTo1Njcx"
+  host: "c3dhdGhp"
 ---
 apiVersion: keda.sh/v1alpha1
 kind: TriggerAuthentication

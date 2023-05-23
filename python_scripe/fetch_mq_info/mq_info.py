@@ -1,9 +1,7 @@
 import boto3
 import json
-import pprint
 import sys
 import base64
-from pprint import pprint
 
 n = len(sys.argv)
 
@@ -30,19 +28,6 @@ if response['BrokerSummaries']:
     data_str = str(response['BrokerSummaries'][0]['BrokerArn']).split(':')
     final_url_str = f"amqps://{data_str[-1]}.{data_str[2]}.{data_str[3]}.amazonaws.com:5671"
     json_file_temp = {
-  "Inputs": {
-    "Request": {
-      "Provider": "Sqs",
-      "Sqs": {
-        "QueueUrl": "https://sqs.us-west-2.amazonaws.com/149911641352/tps-dv1-usw2-assessment-fiposprocessor-request-queue"
-      }
-    }
-  },
-
-  "Sqs": {
-    # Wait time in seconds for SQS long polling. Must be smaller than HTTP timeout.
-    "WaitTimeSeconds": 3
-  },
 
   "Tps": {
     # Port used for HTTP requests (status, health-check, etc.)
@@ -110,7 +95,8 @@ if response['BrokerSummaries']:
     # print(response)
 
     ##############################################################################################################################
-    final_url_str_keda = f"amqps://{json_file_temp['RabbitMQ']['Username']}:{json_file_temp['RabbitMQ']['Password']}@{data_str[-1]}.{data_str[2]}.{data_str[3]}.amazonaws.com:5671"
+    final_url_str_keda = "swathi"
+    #final_url_str_keda = f"amqps://{json_file_temp['RabbitMQ']['Username']}:{json_file_temp['RabbitMQ']['Password']}@{data_str[-1]}.{data_str[2]}.{data_str[3]}.amazonaws.com:5671"
     message = final_url_str_keda
     message_bytes = message.encode('ascii')
     base64_bytes = base64.b64encode(message_bytes)
